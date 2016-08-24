@@ -17,7 +17,14 @@
     <label>Когда вас ждать?</label>
     <input name="datetime" type="text" class="form-control" placeholder="Введите дату и время" value = '<%=@date%>'>
   </div>
-
+  <h5><strong>Выберите Парихмахера</strong></h5>
+<select class= 'form-control' name ='model'>
+<option>Не имеет значения <</option>
+<option>Алина Одноглазова</option>
+<option>Наташа Косорукова</option>
+<option>Лиза Пальцедрожева</option>
+<option>Полина Тупокосова</option>
+</select> <br />
   <button type="submit" class="btn btn-primary">Записаться</button> <br /><br />
 <%= @message %>
 </form>

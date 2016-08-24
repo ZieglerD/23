@@ -17,6 +17,7 @@ post '/visit' do
 @name = params[:username]
 @phone = params[:phone]
 @date = params[:datetime]
+@maker = params[:model]
 if @name == '' then 
 @message = 'Укажите свое имя'
 erb :visit
@@ -26,12 +27,13 @@ elsif @phone == '' then
 elsif @date == '' then
 	@message = 'Вы забыли указать дату'
 	erb :visit
+
 else
 		f= File.open './public/za.txt' , 'a'
-f.write "#{@name}, #{@phone}, #{@date}   
+f.write "#{@name}, #{@phone}, #{@date} , #{@maker}  
   "
 f.close
-	@message = "#{@name},мы ждем вас  #{@date},Если что то изменится - позвоним по телефону #{@phone}"
+	@message = "#{@name},мы ждем вас  #{@date},Если что то изменится - позвоним по телефону #{@phone},Ваш парихмахер - #{@maker}"
 	erb :visit
 end
 end
