@@ -1,6 +1,5 @@
 <h2>Записаться</h2>
 <p>На этой странице вы сможете записаться к нам в Barber Shop</p>
-
 <form action="/visit" method="POST" role="form">
 
   <div class="form-group">
@@ -26,5 +25,10 @@
 <option>Полина Тупокосова</option>
 </select> <br />
   <button type="submit" class="btn btn-primary">Записаться</button> <br /><br />
-<%= @message %>
+<div id='massage'><%= @message %></div>
+<div id='clap'><%= @clap %></div>
 </form>
+    <script type="text/javascript">
+    $("#massage").css('color','red')
+    $("#clap").css('color','royalblue')
+    </script>

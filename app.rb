@@ -19,13 +19,13 @@ post '/visit' do
 @date = params[:datetime]
 @maker = params[:model]
 if @name == '' then 
-@message = 'Укажите свое имя'
+@message = '* Укажите свое имя'
 erb :visit
 elsif @phone == '' then
-	@message = 'Укажите свой телефон'
+	@message = '* Укажите свой телефон'
 	erb :visit
 elsif @date == '' then
-	@message = 'Вы забыли указать дату'
+	@message = '* Вы забыли указать дату'
 	erb :visit
 
 else
@@ -33,7 +33,7 @@ else
 f.write "#{@name}, #{@phone}, #{@date} , #{@maker}  
   "
 f.close
-	@message = "#{@name},мы ждем вас  #{@date},Если что то изменится - позвоним по телефону #{@phone},Ваш парихмахер - #{@maker}"
+	@clap = "#{@name},мы ждем вас  #{@date},Если что то изменится - позвоним по телефону #{@phone},Ваш парихмахер - #{@maker}"
 	erb :visit
 end
 end
