@@ -10,6 +10,7 @@ get '/about' do
 	erb :about
 end
 
+
 get '/visit' do
 	erb :visit
 end
@@ -55,5 +56,8 @@ else
 end
 
 	end
-
+	#Not founded pages
+get '/*' do
+'Ooops,page not found!'
+	end
 
