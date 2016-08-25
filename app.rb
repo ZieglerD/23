@@ -14,21 +14,23 @@ end
 get '/visit' do
 	erb :visit
 end
+#Form variables to POST
 post '/visit' do
 @name = params[:username]
 @phone = params[:phone]
 @date = params[:datetime]
 @maker = params[:model]
+#Form validation
 if @name == '' then 
-@message = '* Укажите свое имя'
+@error = '* Укажите свое имя'
 erb :visit
 elsif @phone == '' then
-	@message = '* Укажите свой телефон'
+	@error = '* Укажите свой телефон'
 	erb :visit
 elsif @date == '' then
-	@message = '* Вы забыли указать дату'
+	@error = '* Вы забыли указать дату'
 	erb :visit
-
+#Adding new registration to file
 else
 		f= File.open './public/za.txt' , 'a'
 f.write "#{@name}, #{@phone}, #{@date} , #{@maker}  
@@ -42,7 +44,7 @@ get '/admin' do
 erb :admin
 	end
 
-
+#Sign in administaration Pannel
 	post '/admin' do
 @id = params[:username].to_s
 @password = params[:phone].to_s
@@ -50,14 +52,22 @@ if @id == '2281128' && @password == 'myWave'
 	then
 erb :panelad
 else 
-	@messageadm = 'Введено неверно, запрос отклонен'
+	@error= 'Введено неверно, запрос отклонен'
 	erb :admin
 
 end
 
 	end
-	#Not founded pages
-get '/*' do
-'Ooops,page not found!'
-	end
 
+#Contacts
+
+get '/contacts' do
+	erb :contacts
+end
+
+
+
+#Not founded page
+ get '/*' do
+erb  "<h1>'Ooops,page not found!'</h1>"
+	end
