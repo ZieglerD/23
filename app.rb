@@ -1,7 +1,6 @@
-require 'rubygems'
 require 'sinatra'
+require 'sqlite3'
 require 'sinatra/reloader'
-
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
 end
@@ -62,12 +61,7 @@ end
 #Contacts
 
 get '/contacts' do
-	erb :contacts
+erb :contacts
 end
 
 
-
-#Not founded page
- get '/*' do
-erb  "<h1>'Ooops,page not found!'</h1>"
-	end
